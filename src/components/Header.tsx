@@ -67,7 +67,7 @@ export default function Header({ theme, setTheme, onOpenResume }: HeaderProps) {
           onClick={() => handleLinkClick('home')} 
           className="font-bold text-lg tracking-tighter text-black dark:text-white cursor-pointer select-none"
         >
-          AMRANE<span className="text-neutral-400 dark:text-neutral-500 font-medium">.AI</span>
+          Anes<span className="text-neutral-400 dark:text-neutral-500 font-medium"> Portfolio</span>
         </div>
 
         {/* Desktop Links */}
