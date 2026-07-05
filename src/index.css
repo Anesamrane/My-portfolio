@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom CSS Micro-animations and utility layouts */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(15px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Base modifications for beautiful custom scrollbars & standard elements */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Styled scrollbar for modern browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4d4d4;
+}
+
+/* Override body styles for smooth transition */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-y: scroll;
+}
+
+/* Responsive custom canvas container max heights */
+#neural-background-canvas {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Print-ready layout optimization for Curriculum Vitae */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-resume-area, #printable-resume-area * {
+    visibility: visible;
+  }
+  #printable-resume-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #000000 !important;
+    background: #ffffff !important;
+  }
+  /* Force clean black text on white background for print quality */
+  #printable-resume-area h1,
+  #printable-resume-area h3,
+  #printable-resume-area h4,
+  #printable-resume-area p,
+  #printable-resume-area span,
+  #printable-resume-area li {
+    color: #000000 !important;
+  }
+  #printable-resume-area .border-l-2 {
+    border-color: #000000 !important;
+  }
+  #printable-resume-area .bg-neutral-950\/50,
+  #printable-resume-area .border-neutral-800 {
+    background: #fcfcfc !important;
+    border-color: #cccccc !important;
+  }
+}
